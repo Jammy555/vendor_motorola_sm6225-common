@@ -33,8 +33,6 @@ cc_prebuilt_library_shared {
                 "vendor.qti.hardware.display.mapper@3.0",
                 "android.hardware.graphics.mapper@3.0",
                 "vendor.qti.hardware.display.mapperextensions@1.1",
-                "vendor.qti.hardware.display.mapper@4.0",
-                "android.hardware.graphics.mapper@4.0",
                 "android.hardware.graphics.mapper@2.0",
                 "libhidlbase",
                 "libutils",
@@ -59,8 +57,6 @@ cc_prebuilt_library_shared {
                 "vendor.qti.hardware.display.mapper@3.0",
                 "android.hardware.graphics.mapper@3.0",
                 "vendor.qti.hardware.display.mapperextensions@1.1",
-                "vendor.qti.hardware.display.mapper@4.0",
-                "android.hardware.graphics.mapper@4.0",
                 "android.hardware.graphics.mapper@2.0",
                 "libhidlbase",
                 "libutils",
@@ -77,6 +73,7 @@ cc_prebuilt_library_shared {
     relative_install_path: "egl",
     prefer: true,
     soc_specific: true,
+    check_elf_files: false
 }
 
 cc_prebuilt_library_shared {
@@ -428,8 +425,11 @@ cc_prebuilt_library_shared {
                 "libvndksupport",
                 "libgralloc.qti",
                 "libgralloctypes",
+                "libadreno_utils",
                 "vendor.qti.hardware.display.mapper@4.0",
                 "android.hardware.graphics.mapper@4.0",
+                "vendor.qti.hardware.display.mapper@3.0",
+                "android.hardware.graphics.mapper@3.0",
                 "vendor.qti.hardware.display.mapperextensions@1.0",
                 "vendor.qti.hardware.display.mapperextensions@1.1",
                 "libhidlbase",
@@ -452,10 +452,13 @@ cc_prebuilt_library_shared {
                 "libvndksupport",
                 "libgralloc.qti",
                 "libgralloctypes",
+                "libadreno_utils",
                 "vendor.qti.hardware.display.mapper@4.0",
                 "android.hardware.graphics.mapper@4.0",
                 "vendor.qti.hardware.display.mapperextensions@1.0",
                 "vendor.qti.hardware.display.mapperextensions@1.1",
+                "vendor.qti.hardware.display.mapper@3.0",
+                "android.hardware.graphics.mapper@3.0",
                 "libhidlbase",
                 "libc++",
                 "libc",
@@ -467,6 +470,7 @@ cc_prebuilt_library_shared {
     compile_multilib: "both",
     prefer: true,
     soc_specific: true,
+    check_elf_files: false,
 }
 
 cc_prebuilt_library_shared {
@@ -481,12 +485,12 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib/libOpenCL.so",
             ],
             shared_libs: [
-                "libcutils",
-                "libvndksupport",
                 "libc++",
                 "libc",
                 "libm",
                 "libdl",
+                "libcutils",
+                "liblog",
             ],
         },
         android_arm64: {
@@ -494,16 +498,53 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libOpenCL.so",
             ],
             shared_libs: [
-                "libcutils",
-                "libvndksupport",
                 "libc++",
                 "libc",
                 "libm",
                 "libdl",
+                "libcutils",
+                "liblog",
             ],
         },
     },
     compile_multilib: "both",
+    prefer: true,
+    soc_specific: true,
+}
+
+
+cc_prebuilt_library_shared {
+    name: "libVkLayer_ADRENO_qprofiler",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/egl/libVkLayer_ADRENO_qprofiler.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libm",
+                "libdl",
+                "libc",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/egl/libVkLayer_ADRENO_qprofiler.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libm",
+                "libdl",
+                "libc",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    relative_install_path: "egl",
     prefer: true,
     soc_specific: true,
 }
@@ -534,6 +575,85 @@ cc_prebuilt_library_shared {
             shared_libs: [
                 "liblog",
                 "libz",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libOpenCL_adreno",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libOpenCL_adreno.so",
+            ],
+            shared_libs: [
+                "libcutils",
+                "libvndksupport",
+                "liblog",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libOpenCL_adreno.so",
+            ],
+            shared_libs: [
+                "libcutils",
+                "libvndksupport",
+                "libc++",
+                "liblog",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libadreno_compiler_cl",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libadreno_compiler_cl.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libadreno_compiler_cl.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libc++",
                 "libc",
                 "libm",
                 "libdl",
@@ -610,6 +730,8 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib/libadreno_utils.so",
             ],
             shared_libs: [
+                "liblog",
+                "libnativewindow",
                 "libgsl",
                 "libc++",
                 "libc",
@@ -622,6 +744,8 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libadreno_utils.so",
             ],
             shared_libs: [
+                "liblog",
+                "libnativewindow",
                 "libgsl",
                 "libc++",
                 "libc",
@@ -1061,6 +1185,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib/libllvm-qcom.so",
             ],
             shared_libs: [
+                "liblog",
                 "libc++",
                 "libc",
                 "libm",
@@ -1072,6 +1197,46 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libllvm-qcom.so",
             ],
             shared_libs: [
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libllvm-qgl",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libllvm-qgl.so",
+            ],
+            shared_libs: [
+                "libgsl",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libllvm-qgl.so",
+            ],
+            shared_libs: [
+                "libgsl",
+                "liblog",
                 "libc++",
                 "libc",
                 "libm",
@@ -10588,6 +10753,88 @@ cc_prebuilt_library_shared {
     compile_multilib: "64",
     prefer: true,
     system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libgpumemtracer",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/vendor/lib64/libgpumemtracer.so"],
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libbase",
+        "libutils",
+        "libc++",
+        "libc",
+        "libm",
+        "libdl",
+    ],
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "gpu++",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/vendor/lib64/gpu++.so"],
+            shared_libs: [
+                "libbase",
+                "libbinder",
+                "libutils",
+                "libcutils",
+                "liblog",
+                "libm",
+                "libc++",
+                "libc",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+    check_elf_files: false
+}
+
+cc_prebuilt_library_shared {
+    name: "libgpuservice",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/vendor/lib64/libgpuservice.so"],
+            shared_libs: [
+                "libbase",
+                "libbinder",
+                "libutils",
+                "libcutils",
+                "liblog",
+                "libm",
+                "libc++",
+                "libc",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+    check_elf_files: false,
 }
 
 cc_prebuilt_library_shared {

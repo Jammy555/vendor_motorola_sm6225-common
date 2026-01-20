@@ -167,13 +167,16 @@ PRODUCT_PACKAGES += \
     libGLESv2_adreno \
     libq3dtools_adreno \
     libq3dtools_esx \
+    libVkLayer_ADRENO_qprofiler \
     vulkan.adreno \
     libC2D2 \
     libCB \
     libOpenCL \
+    libOpenCL_adreno \
     libVkLayer_q3dtools \
     libadreno_app_profiles \
     libadreno_utils \
+    libadreno_compiler_cl \
     libc2d30_bltlib \
     libcdsprpc \
     libdiag \
@@ -181,10 +184,13 @@ PRODUCT_PACKAGES += \
     libfastcvdsp_stub \
     libfastcvopt \
     libgpudataproducer \
+    libgpumemtracer \
+    libgpuservice \
     libgsl \
     libidl \
     libllvm-glnext \
     libllvm-qcom \
+    libllvm-qgl \
     libmdmdetect \
     libperfconfig \
     libperfgluelayer \
@@ -201,6 +207,7 @@ PRODUCT_PACKAGES += \
     libqmiservices \
     libqti-perfd-client \
     libqti-perfd \
+    gpu++ \
     libqti-util \
     libscveCommon \
     libscveCommon_stub \
