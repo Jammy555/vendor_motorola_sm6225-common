@@ -97,7 +97,7 @@ PRODUCT_COPY_FILES += \
     vendor/motorola/sm6225-common/proprietary/vendor/etc/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf \
     vendor/motorola/sm6225-common/proprietary/vendor/etc/sap.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sap.conf \
     vendor/motorola/sm6225-common/proprietary/vendor/etc/seccomp_policy/imsrtp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/imsrtp.policy \
-    vendor/motorola/sm6225-common/proprietary/vendor/etc/seccomp_policy/mediacod/libqti-util.soec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
+    vendor/motorola/sm6225-common/proprietary/vendor/etc/seccomp_policy/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
     vendor/motorola/sm6225-common/proprietary/vendor/etc/seccomp_policy/qti-systemd.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/qti-systemd.policy \
     vendor/motorola/sm6225-common/proprietary/vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/vendor.qti.hardware.dsp.policy \
     vendor/motorola/sm6225-common/proprietary/vendor/etc/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf \
@@ -180,7 +180,6 @@ PRODUCT_PACKAGES += \
     libidl \
     libllvm-glnext \
     libllvm-qcom \
-    libllvm-qgl \
     libmdmdetect \
     libqdi \
     libqdp \
@@ -192,8 +191,6 @@ PRODUCT_PACKAGES += \
     libqmi_csi \
     libqmi_encdec \
     libqmiservices \
-    gpu++ \
-    libqti-util \
     libscveCommon \
     libscveCommon_stub \
     libscveObjectSegmentation \
@@ -225,6 +222,9 @@ PRODUCT_PACKAGES += \
     libqtigef \
     libasphere \
     libshoebox \
+    libqcbassboost \
+    libqcreverb \
+    libqcvirt \
     com.qualcomm.qti.dpm.api@1.0_vendor \
     com.qualcomm.qti.imscmservice@2.0 \
     com.qualcomm.qti.imscmservice@2.1 \
