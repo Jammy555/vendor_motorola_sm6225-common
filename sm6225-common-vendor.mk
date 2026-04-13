@@ -235,6 +235,9 @@ PRODUCT_PACKAGES += \
     libqtigef \
     libasphere \
     libshoebox \
+    libqcbassboost \
+    libqcreverb \
+    libqcvirt \
     com.qualcomm.qti.dpm.api@1.0_vendor \
     com.qualcomm.qti.imscmservice@2.0 \
     com.qualcomm.qti.imscmservice@2.1 \
